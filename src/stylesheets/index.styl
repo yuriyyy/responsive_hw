@@ -1,0 +1,116 @@
+@import "variables"
+@import "reset"
+@import "layout"
+
+.page-wrapper
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  align-items: flex-start
+  align-content: flex-start
+  flex-wrap: wrap
+  position: relative
+  padding-top: $headerBigSize
+  padding-bottom: $gridHor
+  @media $small
+    padding-top: $headerSmallSize
+.body
+  &__item
+    display: flex
+    height: 10em
+    width: 100%
+    margin: .5em $gridHor 0
+    &--red
+      background-color: red
+    &--orange
+      background-color: orange
+    &--green
+      background-color: green
+    &--pink
+      background-color: pink
+    &--blue
+      background-color: blue
+
+//red block
+.header
+  position: fixed
+  top: 0
+  left: 0
+  height: $headerBigSize
+  width: 100%
+  @media $small
+    height: $headerSmallSize
+
+//orange block
+.subheader
+  @media $small
+    order: -1
+    flex: 1
+  @media $medium
+    flex-basis: 100%
+
+//yellow block
+.article
+  flex-wrap: wrap
+  @media $medium
+    width: 70%
+    height: 20em
+
+  &__item
+    display: flex
+    justify-content: center
+    align-items: center
+    margin-bottom: .5em;
+    width: 100%
+    background-color: yellow
+    padding: .5em
+    &:not(:first-child)
+      display: none
+    @media $medium
+      // margin: .5em;
+      width: calc(50% - .3em)
+      &:not(:first-child)
+        display: flex
+      &:nth-child(2n)
+        margin-left: .5em
+      &:last-child,
+      &:nth-last-child(2)
+        margin-bottom: 0
+
+
+
+//green block
+.aside
+  display: flex;
+  flex-direction: column;
+
+  &__item
+    flex: 1;
+    @media $medium
+      flex: 1 0 15em;
+
+  &__item + &__item
+    margin-top: .5em;
+  .footer
+    display: none;
+
+  @media $small
+    order: -1
+    margin-left: 0
+    width: 30%
+  @media $medium
+    order: 0
+    flex: 1
+    .footer
+      display: flex;
+
+//pink block
+.section
+  @media $medium
+    width: 70%
+    height: 20em
+
+//blue block
+.footer
+  @media $medium
+    display: none;
